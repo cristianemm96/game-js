@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&display=swap');
+
+body{
+  background-color: beige;
+}
+
+#result-text{
+  text-align: center;
+  height:50px;
+  width: 220px;
+  margin-top:30px;
+}
+
+#score-text{
+  text-align: center;
+  height:50px;
+  width: 220px;
+  margin-top:30px;  
+}
+
+#pc-election-text{
+  text-align: center;
+  height:50px;
+  width: 220px;
+  margin-top:30px;
+}
+
+#container{
+  display:flex;
+  align-items:center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#ROCK{
+  width: 180px;
+  height: 50px;
+  margin-top: 50px;
+  font-size: 20px;
+}
+
+#SCISSORS{
+  width: 180px;
+  height: 50px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+#PAPER{
+  width: 180px;
+  height: 50px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+#reload-button{
+  margin-top: 10px;
+  width:100px;
+  height:50px;
+}
+
+button{
+  background-color: #1e3466;
+  font-family: 'Lobster', cursive;
+  border-radius: 5px;
+  font-weight: bold;
+  color: azure;
+}
+
+button:hover{
+  background-color:#4d5c7e;
+  transition: all 0.5s ease-out;
+  transition-property: sliding-vertically;
+  border:none;
+}
+
+input:focus{
+  outline:none;
+}
+
+input{
+  background-color: #70afb2;
+  border:none;
+  color:#e8fee6;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Lobster', cursive;
+}

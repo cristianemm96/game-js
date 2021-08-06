@@ -4,184 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Open the console for play.</h1>
-
-    <script>
-        //ComputerPlay code
-        
-        //Create a list with the parameters for random computer play.
-        const parameterGame = ["ROCK", "PAPER", "SCISSORS"];
-        let playerScore = 0;
-        let computerScore = 0;
-        function computerPlay(){
-            //I get a random number to use as a choice of parameters.
-            let aletoryNumber = getNumber();
-            //Return the election of the parameter
-            let election = parameterGame[aletoryNumber];
-            return election;
-        }
-        //I get a random float number
-        let getRandomNumber = () => Math.random() * (2 - 0) + 0;
-
-        //I get a round aleatory number
-        function getNumber(){
-            let number = Math.round(getRandomNumber());
-            return number;
-        }
-
-        //PlayRound code.
-
-        //Check the winer of the actual game
-        let playerWins = (playerSelection, computerSelection) => firstWinSecond(playerSelection, computerSelection);
-        let computerWins = (computerSelection, playerSelection) => firstWinSecond(computerSelection, playerSelection)
-
-        function firstWinSecond(firstSelection, secondSelection){
-            switch (firstSelection) {
-                case "ROCK":
-                    return checkWinRockRules(secondSelection);
-                    break;
-                case "SCISSORS":
-                    return checkwinScissorsRules(secondSelection);
-                    break;
-                case "PAPER":
-                    return checkWinPaperRules(secondSelection);
-                    break;    
-                default:
-                    return false;
-                    break;
-            }
-        }
-        
-        //Check Rock rules game
-        function checkWinRockRules(selection){
-            switch (selection) {
-                case "PAPER":
-                    return false;
-                    break;
-                case "SCISSORS": 
-                    return true;
-                    break;
-                default : return false;
-                break
-            }
-        }
-
-        //Check Scissors rules game
-        function checkwinScissorsRules(selection){
-            switch (selection) {
-                case "PAPER":
-                    return true;
-                    break;
-                case "SCISSORS": 
-                    return false;
-                    break;
-                default: return false
-                    break;
-
-            }
-        }
-
-        //Check Paper rules game
-        function checkWinPaperRules(selection){
-            switch (selection) {
-                case "PAPER":
-                    return false;
-                    break;
-                case "SCISSORS": 
-                    return false;
-                    break;
-                default:
-                    return true;
-                    break;
-            }
-        }
-
-        //Play the actual round.
-        function playRound(playerSelection, computerSelection){
-            let msg;
-            let upPlayerSelection = playerSelection.toUpperCase();
-            if(isAValidPlayerSelection(upPlayerSelection)){
-               msg = playGame(upPlayerSelection, computerSelection);
-            }
-            else{
-                msg = "Invalid input. Choose between Paper, Scissors and rock."
-            }
-           return msg;
-        }
-
-        //Check a valid player selection
-        function isAValidPlayerSelection(playerSelection){
-            return parameterGame.includes(playerSelection);
-        }
-
-        //Play the game with both selections and update the score.
-        function playGame(playerSelection, computerSelection){
-            let exp;
-            console.log("The computer choose: " + computerSelection);
-            if(playerWins(playerSelection, computerSelection)){
-                updateScore(playerSelection, computerSelection);
-                exp = `Great! ${playerSelection.toUpperCase()} is better
-                than ${computerSelection.toUpperCase()}`;
-            }
-            else if(computerWins(computerSelection, playerSelection)){
-                updateScore(playerSelection, computerSelection);
-                exp = `You lose ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}`;
-            }
-            else{exp = "Tie"}; 
-            return exp;
-        }
-
-        //Update the score
-        function updateScore(playerSelection, computerSelection){
-            if(playerWins(playerSelection, computerSelection)){
-                playerScore = playerScore + 1;
-            }
-            else if(computerWins(computerSelection, playerSelection)){
-                computerScore = computerScore + 1;
-            }
-            else{
-                playerScore = playerScore;
-                computerScore = computerScore;
-            }
-        }
-       
-        
-        let isEmpty = (playerSelection) => playerSelection == undefined;
-
-        //Play 5 rounds.
-        function game(){
-            for (let i = 1; i <=5 ; i++){
-                let playerSelection = prompt("Choose between: Rock, Paper and Scissors");
-                if(! isEmpty(playerSelection)){
-                    playerSelection = playerSelection.toUpperCase();
-                    let computerSelection = computerPlay();
-                    console.log(playRound(playerSelection, computerSelection));
-                }
-                else{
-                    console.log("Empty input.")
-                }
-                
-            }
-            printFinalScore(playerScore, computerScore);
-        }
-
-        //Print on console the final score.
-        function printFinalScore(playerScore, computerScore){
-            if(playerScore > computerScore){
-                console.log(`Player wins: ${playerScore}, computer score: ${computerScore}`);
-            }
-            else if(computerScore > playerScore){
-                console.log(`Computer wins: ${computerScore}, player score: ${playerScore}`);
-            }else{
-                console.log(`Tie: Player score: ${playerScore} - Computer score: ${computerScore}`)
-            }
-        }
-
-        game()
-
-    </script>
+  <div id="container">
+    <div class="button"><button id="ROCK" class="button">ROCK</button></div>
+    <div class="button"><button id="SCISSORS" class="button">SCISSORS</button></div>
+    <div class="button"><button id="PAPER" class="button">PAPER</button></div>
+    <div id="pc-election"><input type="text" name="pc-election-text" id="pc-election-text" readonly></textarea></div>
+    <div id="result"><input type="text" name="result-text" id="result-text" readonly></div>
+    <div id="score"><input type="text" name="score-text" id="score-text"readonly></div>
+    <div id="reload"><button id="reload-button" class="button">Restart Game</button></div>
+  </div>
+    <script src="./javascript/rps.js"></script>
 </body>
 </html>
